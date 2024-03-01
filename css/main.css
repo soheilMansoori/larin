@@ -1,0 +1,16 @@
+@import url('./Tailwind.css');
+
+@font-face {
+    font-family: Vazir;
+    src: url('../fonts/Vazir/Vazir.eot') format('eot'),
+        url('../fonts/Vazir/Vazir.ttf') format('ttf'),
+        url('../fonts/Vazir/Vazir.woff') format('woff'),
+        url('../fonts/Vazir/Vazir.woff2') format('woff2'),
+    ;
+
+}
+
+body {
+    font-family: Vazir !important;
+    direction: rtl !important;
+}
