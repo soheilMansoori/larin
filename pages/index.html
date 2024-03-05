@@ -5,15 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <!-- Link main CSS -->
     <link rel="stylesheet" href="../css/main.css">
-    <!-- tailwind css -->
-    <script src="https://cdn.tailwindcss.com" async></script>
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Link tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com" defer></script>
 
 </head>
 
 <body class="font-YekanBakh-Regular text-sm bg-[#f5f1e4]">
-    <!-- Header start -->
-    <header class="px-4 static">
+    <!-- nav start -->
+    <nav class="px-4 static">
         <div class="container mx-auto max-w-screen-xl">
             <div class="flex justify-between items-center py-6">
                 <!-- menu start  -->
@@ -157,18 +160,22 @@
                 <!-- login btn end -->
             </div>
         </div>
-    </header>
-    <!-- Header end -->
+    </nav>
+    <!-- nav end -->
 
-
-    <!-- <section class="px-4 mb-24">
+    <!-- header start -->
+    <header class="px-4 mb-24">
         <div class="container mx-auto max-w-screen-xl relative pt-5 pl-5 lg:pt-10 lg:pl-10">
+            <!-- black shadow -->
             <div class="bg-stone-900 absolute top-0 left-0 h-36 lg:h-[28.4rem] w-52 lg:w-96 rounded-b-3xl"></div>
-            <div class="grid grid-cols-12 gap-8">
+
+            <div class="grid grid-cols-12 md:gap-8">
+                <!-- text content -->
                 <div class="col-span-12 lg:col-span-4 order-2 lg:order-1">
                     <div class="leading-8 mt-8">
                         <span class="font-YekanBakh-Bold bg-orange-200 rounded-full py-1 px-4">شرکت صندلی لارین</span>
-                        <h2 class="font-YekanBakh-ExtraBlack text-4xl my-6">دنیـــــای صنـــدلــــی هـــای مینیمــــال
+                        <h2 class="font-YekanBakh-ExtraBlack  text-xl md:text-4xl my-6">دنیـــــای صنـــدلــــی هـــای
+                            مینیمــــال
                         </h2>
                         <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است
                             چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.</p>
@@ -187,14 +194,15 @@
                         </div>
                     </div>
                 </div>
+                <!-- slider -->
                 <div class="col-span-12 lg:col-span-8 order-1 lg:order-2">
                     <div class="swiper mySwiper">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <img class="object-cover w-full rounded-xl" src="../assets/images/slider-1.jpg" alt="">
+                                <img class="object-cover w-full rounded-xl" src="../imgs/index/sliders/slider-1.jpg">
                             </div>
                             <div class="swiper-slide">
-                                <img class="object-cover w-full rounded-xl" src="../assets/images/slider-2.jpg" alt="">
+                                <img class="object-cover w-full rounded-xl" src="../imgs/index/sliders/slider-2.jpg">
                             </div>
                         </div>
                         <div class="swiper-button-next after:text-2xl after:text-stone-900 mx-2"></div>
@@ -203,7 +211,8 @@
                 </div>
             </div>
         </div>
-    </section> -->
+    </header>
+    <!-- header end -->
 
     <!-- <section class="px-4 py-14 bg-gradient-to-t from-orange-100">
         <div class="container mx-auto max-w-screen-xl">
@@ -774,8 +783,11 @@
         </div>
     </footer> -->
 
+
     <!-- scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script type="module" src="../js/app.js"></script>
+    <script src="../js/index/index.js"></script>
 </body>
 
 </html>
