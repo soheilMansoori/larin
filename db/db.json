@@ -24,5 +24,43 @@
             "title": "فروش اقساطی",
             "description": "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده طراحان گرافیک و..."
         }
+    ],
+    "projects": [
+        {
+            "id": 1,
+            "title": "",
+            "img": "../imgs/index/projects/project-1.jpg",
+            "oderImages": [],
+            "description": "",
+            "moreInfos": {},
+            "slug": ""
+        },
+        {
+            "id": 2,
+            "title": "",
+            "img": "../imgs/index/projects/project-2.jpg",
+            "oderImages": [],
+            "description": "",
+            "moreInfos": {},
+            "slug": ""
+        },
+        {
+            "id": 4,
+            "title": "",
+            "img": "../imgs/index/projects/project-3.jpg",
+            "oderImages": [],
+            "description": "",
+            "moreInfos": {},
+            "slug": ""
+        },
+        {
+            "id": 3,
+            "title": "",
+            "img": "../imgs/index/projects/project-4.jpg",
+            "oderImages": [],
+            "description": "",
+            "moreInfos": {},
+            "slug": ""
+        }
     ]
 }
