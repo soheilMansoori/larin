@@ -242,7 +242,7 @@ let partnersSlide = new Swiper(".partners", {
     fetch('http://localhost:4000/partners')
         .then(res => res.json())
         .then(data => {
-            console.log('partners => ', data)
+            // console.log('partners => ', data)
             renderPartnersToDom(data)
         }).catch(error => console.log(error.message));
 })();
