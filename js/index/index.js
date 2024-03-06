@@ -147,12 +147,12 @@ function renderCommentsToDom(commentsArray) {
                 <div class="flex items-center mb-4">
                     <div class="avatar ml-4">
                         <div class="w-20 rounded-full">
-                            <img src="${comment?.user.profileImage}" />
+                            <img src="${comment?.user?.profileImage}" />
                         </div>
                     </div>
                 <div class="flex flex-col items-center">
-                    <h3 class="font-YekanBakh-Bold text-slate-800 text-sm">${comment?.user.name} ${comment?.user.family}</h3>
-                    <p>${comment?.user.task}</p>
+                    <h3 class="font-YekanBakh-Bold text-slate-800 text-sm">${comment?.user?.name} ${comment?.user?.family}</h3>
+                    <p>${comment?.user?.task}</p>
                 </div>
             </div>
             <p>
@@ -163,5 +163,67 @@ function renderCommentsToDom(commentsArray) {
         `)
     });
 
-}
+};
 ///////////////////////// customer comments section end //////////////////////////
+
+//////////////////////// blogs section start /////////////////////////////////
+
+// get all blogs from the server
+(() => {
+    fetch('http://localhost:4000/blogs?_limit=4&_embed=user')
+        .then(res => res.json())
+        .then(data => {
+            // console.log('blogs => ', data);
+            renderBlogsToDom(data)
+        }).catch(error => console.log(error.message));
+})();
+
+function renderBlogsToDom(blogsArray) {
+    // get blogs wrapper element from DOM
+    const blogsWrapper = $.getElementById('blogs-wrapper')
+    // console.log('blogsWrapper => ', blogsWrapper);
+    blogsArray.forEach(blog => {
+        blogsWrapper.insertAdjacentHTML('afterbegin', `
+        <div
+        class="bg-white overflow-hidden rounded-3xl leading-8 transform hover:-translate-y-1 duration-300 transition-transform">
+        <div class="p-6">
+            <div class="flex items-center mb-4 border-b border-dashed pb-4">
+                <div class="avatar ml-2">
+                    <div class="w-14 rounded-full">
+                        <img src="${blog?.user?.profileImage}" />
+                    </div>
+                </div>
+                <div class="flex flex-col mt-1">
+                    <h3 class="font-YekanBakh-Bold text-slate-800 text-sm mb-2">${blog?.user?.name} ${blog?.user?.family}</h3>
+                    <p class="text-xs">${blog?.user?.task}</p>
+                </div>
+
+            </div>
+            <div class="leading-8">
+                <div class="flex items-center mb-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none">
+                        <path
+                            d="M13.98 5.31999L10.77 8.52999L8.79999 10.49C7.96999 11.32 7.96999 12.67 8.79999 13.5L13.98 18.68C14.66 19.36 15.82 18.87 15.82 17.92V12.31V6.07999C15.82 5.11999 14.66 4.63999 13.98 5.31999Z"
+                            fill="#b9a158" />
+                    </svg>
+                    <a href="single-page.html">
+                        <h2 class="font-YekanBakh-ExtraBold text-base mr-1">${blog.title}</h2>
+                    </a>
+                </div>
+                <p>
+                    ${blog.description?.slice(0,40)} ...
+                </p>
+            </div>
+        </div>
+        <div>
+            <a href="single-page.html">
+                <img class="rounded-b-lg" src="${blog.blogImage}" alt="">
+            </a>
+        </div>
+        </div>
+    `)
+    });
+}
+
+//////////////////////// blogs section end /////////////////////////////////
