@@ -14,7 +14,7 @@
 
 </head>
 
-<body class="font-YekanBakh-Regular text-sm bg-[#f5f1e4]">
+<body class="font-YekanBakh-Regular text-sm bg-[#f5f1e4]" id="body">
     <!-- nav start -->
     <nav class="px-4 static">
         <div class="container mx-auto max-w-screen-xl">
@@ -218,7 +218,7 @@
     <section class="px-4 py-14 bg-gradient-to-t from-orange-100">
         <div class="container mx-auto max-w-screen-xl">
             <div class="flex justify-center relative mb-14">
-                <h2 class="font-YekanBakh-ExtraBlack text-3xl">خـــــدمــــات لاریـــــن</h2>
+                <h2 class="font-YekanBakh-ExtraBlack text-center text-3xl">خـــــدمــــات لاریـــــن</h2>
                 <div class="absolute -top-6">
                     <span class="font-YekanBakh-ExtraBlack text-6xl text-opacity-10 text-stone-900">services</span>
 
@@ -238,31 +238,30 @@
     <section class="pt-20 mb-10 px-4">
         <div class="container mx-auto max-w-screen-xl">
             <div class="flex justify-center relative mb-14">
-                <h2 class="font-YekanBakh-ExtraBlack text-3xl">پـــــــــــــروژه لاریـــــن</h2>
+                <h2 class="font-YekanBakh-ExtraBlack text-center text-3xl">پـــــــــــــروژه لاریـــــن</h2>
                 <div class="absolute -top-6">
                     <span class="font-YekanBakh-ExtraBlack text-6xl text-opacity-10 text-stone-900">projects</span>
                 </div>
                 <div class="bg-orange-200 w-20 h-1.5 rounded-full absolute top-10"></div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-3 gap-4"  id="projects-wrapper">
+            <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-3 md:gap-4" id="projects-wrapper">
                 <!-- come from index.js -->
             </div>
         </div>
     </section>
     <!-- projects end -->
 
-    <!-- <section class="px-4 py-20 mb-16 bg-gradient-to-t from-orange-100">
+    <!-- customer comments start -->
+    <section class="px-4 py-20 mb-16 bg-gradient-to-t from-orange-100">
         <div class="container mx-auto max-w-screen-xl">
             <div class="flex justify-center relative mb-14">
-                <h2 class="font-YekanBakh-ExtraBlack text-3xl">نظــــــرات مشتریــــــان</h2>
+                <h2 class="font-YekanBakh-ExtraBlack text-center text-3xl">نظــــــرات مشتریــــــان</h2>
                 <div class="absolute -top-6">
                     <span class="font-YekanBakh-ExtraBlack text-6xl text-opacity-10 text-stone-900">customer</span>
-
                 </div>
                 <div class="bg-orange-200 w-20 h-1.5 rounded-full absolute top-10"></div>
-
             </div>
-            <div class="grid grid-cols-12 gap-8">
+            <div class="grid grid-cols-12 md:gap-8">
                 <div class="col-span-12 md:col-span-5 relative">
                     <div class="leading-8">
                         <h2 class="font-YekanBakh-ExtraBlack text-3xl my-4">از زبان مشتریان ما بشنوید...</h2>
@@ -283,97 +282,20 @@
                         </svg>
                     </div>
                 </div>
-                <div class="col-span-12 md:col-span-7 ">
-
+                <div class="col-span-12 md:col-span-7 mt-5 sm:mt-0">
                     <div class="swiper customer">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="bg-white p-6 leading-8 rounded-3xl">
-                                    <div class="flex items-center mb-4">
-                                        <div class="avatar ml-4">
-                                            <div class="w-20 rounded-full">
-                                                <img src="../assets/images/avatar-2.jpg" />
-                                            </div>
-                                        </div>
-                                        <div class="flex flex-col items-center">
-                                            <h3 class="font-YekanBakh-Bold text-slate-800 text-sm">سهیلا صادقی</h3>
-                                            <p>طراح گرافیک</p>
-                                        </div>
-
-                                    </div>
-                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                                        گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و
-                                        برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای
-                                        کاربردی می باشد</p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="bg-white p-6 leading-8 rounded-3xl">
-                                    <div class="flex items-center mb-4">
-                                        <div class="avatar ml-4">
-                                            <div class="w-20 rounded-full">
-                                                <img src="../assets/images/avatar-4.jpg" />
-                                            </div>
-                                        </div>
-                                        <div class="flex flex-col items-center">
-                                            <h3 class="font-YekanBakh-Bold text-slate-800 text-sm">فرهاد یاسری</h3>
-                                            <p>طراح گرافیک</p>
-                                        </div>
-
-                                    </div>
-                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                                        گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و
-                                        برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای
-                                        کاربردی می باشد</p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="bg-white p-6 leading-8 rounded-3xl">
-                                    <div class="flex items-center mb-4">
-                                        <div class="avatar ml-4">
-                                            <div class="w-20 rounded-full">
-                                                <img src="../assets/images/avatar-1.jpg" />
-                                            </div>
-                                        </div>
-                                        <div class="flex flex-col items-center">
-                                            <h3 class="font-YekanBakh-Bold text-slate-800 text-sm">نوید محمودی</h3>
-                                            <p>طراح گرافیک</p>
-                                        </div>
-
-                                    </div>
-                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                                        گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و
-                                        برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای
-                                        کاربردی می باشد</p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="bg-white p-6 leading-8 rounded-3xl">
-                                    <div class="flex items-center mb-4">
-                                        <div class="avatar ml-4">
-                                            <div class="w-20 rounded-full">
-                                                <img src="../assets/images/avatar-3.jpg" />
-                                            </div>
-                                        </div>
-                                        <div class="flex flex-col items-center">
-                                            <h3 class="font-YekanBakh-Bold text-slate-800 text-sm">سارا توحیدی</h3>
-                                            <p>طراح گرافیک</p>
-                                        </div>
-
-                                    </div>
-                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                                        گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و
-                                        برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای
-                                        کاربردی می باشد</p>
-                                </div>
-                            </div>
+                        <div class="swiper-wrapper" id="comments-wrapper">
+                            <!-- come from index.js -->
                         </div>
                         <div class="swiper-pagination"></div>
                     </div>
                 </div>
             </div>
         </div>
-    </section> -->
+    </section>
+    <!-- customer comments end -->
+
+
 
     <!-- <section class="px-4 sm:px-0 mb-32">
 
@@ -656,6 +578,17 @@
             </div>
         </div>
     </section> -->
+
+    <!-- 
+    <a href="#body" id="to-top-button" title="Go To Top"
+        class="fixed z-50 bottom-10 right-10 p-4 border-0 w-14 h-14 rounded-full bg-stone-900 hover:bg-orange-200 text-orange-200 hover:text-stone-900 duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 19.5v-15m0 0l-6.75 6.75M12 4.5l6.75 6.75" />
+        </svg>
+
+        <span class="sr-only">Go to top</span>
+    </a> -->
 
 
     <!-- <footer class="p-10 bg-stone-800 text-white">

@@ -3,7 +3,12 @@ const $ = document;
 /////////////////////////////// header section start //////////////////////////////////
 
 // img slider in header 
-let swiper = new Swiper(".mySwiper", {
+let headerSlider = new Swiper(".mySwiper", {
+    loop: true,
+    autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+    },
     navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
@@ -17,7 +22,7 @@ let swiper = new Swiper(".mySwiper", {
 
 // get all services from server
 (() => {
-    fetch('http://localhost:4000/services')
+    fetch('http://localhost:4000/services?_limit=4')
         .then(res => res.json())
         .then(data => {
             // console.log('services => ', data)
@@ -32,12 +37,12 @@ function renderServicesToDom(servicesArray) {
     const servicesWrapper = $.getElementById('services-wrapper')
     // console.log('servicesWrapper => ', servicesWrapper);
 
-    servicesArray.forEach(item => {
+    servicesArray.forEach(service => {
         servicesWrapper.insertAdjacentHTML('afterbegin', `
     <div
         class="bg-white p-6 rounded-3xl leading-8 transform hover:-translate-y-1 duration-300 transition-transform cursor-pointer">
         <div class="w-16 mb-4">
-            <img src="${item.img}" alt="">
+            <img src="${service.img}" alt="">
         </div>
 
         <div class="flex items-center mb-4">
@@ -47,12 +52,12 @@ function renderServicesToDom(servicesArray) {
                     fill="#b9a158" />
             </svg>
             <a href="#">
-                <h2 class="font-YekanBakh-ExtraBold text-base mr-1">${item.title}</h2>
+                <h2 class="font-YekanBakh-ExtraBold text-base mr-1">${service.title}</h2>
             </a>
         </div>
         <div>
             <p>
-                ${item.description}
+                ${service.description}
             </p>
         </div>
     </div>
@@ -67,22 +72,22 @@ function renderServicesToDom(servicesArray) {
 
 // get all projects form server
 (() => {
-    fetch('http://localhost:4000/projects')
+    fetch('http://localhost:4000/projects?_limit=4')
         .then(res => res.json())
         .then(data => {
-            console.log('projects => ', data);
+            // console.log('projects => ', data);
             renderProjectsToDom(data.slice(0, 4).reverse())
         }).catch(error => console.log(error.message));
 })();
 
-function renderProjectsToDom(projectArray) {
+function renderProjectsToDom(projectsArray) {
     // get projects wrapper element from DOM
     const projectsWrapper = $.getElementById('projects-wrapper')
     // console.log('projectsWrapper => ', projectsWrapper);
-    projectArray.forEach((project) => {
+    projectsArray.forEach((project) => {
         projectsWrapper.insertAdjacentHTML('afterbegin', `
-        <a a href="single-project.html"
-        class="group relative flex justify-center h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg  md:h-72  col-span-1 md:col-span-2 ${project.id % 2 === 0 ? "lg:col-span-2" : "lg:col-span-1"}">   
+        <a  href="single-project.html"
+            class="group my-3 md:my-0 relative flex justify-center h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg  md:h-72  col-span-1 md:col-span-2 ${project.id % 2 === 0 ? "lg:col-span-2" : "lg:col-span-1"}">   
             <img src="${project.img}" loading="lazy" alt="Photo by Martin Sanchez"
             class="absolute inset-0 h-full w-full object-cover object-center transition duration-300 group-hover:scale-110" />
             <div
@@ -98,3 +103,65 @@ function renderProjectsToDom(projectArray) {
 }
 
 ////////////////////// projects section end ////////////////////////////
+
+///////////////////////// customer comments section start //////////////////////////
+
+// slider 
+let customerCommentsSlider = new Swiper(".customer", {
+    effect: "cube",
+    click: true,
+    grabCursor: true,
+    autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+    },
+    cubeEffect: {
+        shadow: true,
+        slideShadows: true,
+        shadowOffset: 20,
+        shadowScale: 0.94,
+    },
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+});
+// get all comments from server
+(() => {
+    fetch('http://localhost:4000/comments?_limit=4&_embed=user')
+        .then(res => res.json())
+        .then(data => {
+            // console.log('comments => ', data);
+            renderCommentsToDom(data);
+        }).catch(error => console.log(error.message));
+})();
+
+function renderCommentsToDom(commentsArray) {
+    // get comments wrapper element from DOM
+    const commentsWrapper = $.getElementById('comments-wrapper')
+    // console.log('commentsWrapper => ', commentsWrapper);
+    commentsArray.forEach(comment => {
+        commentsWrapper.insertAdjacentHTML('afterbegin', `
+        <div class="swiper-slide">
+            <div class="bg-white p-6 leading-8 rounded-3xl mt-5 md:mt-0">
+                <div class="flex items-center mb-4">
+                    <div class="avatar ml-4">
+                        <div class="w-20 rounded-full">
+                            <img src="${comment?.user.profileImage}" />
+                        </div>
+                    </div>
+                <div class="flex flex-col items-center">
+                    <h3 class="font-YekanBakh-Bold text-slate-800 text-sm">${comment?.user.name} ${comment?.user.family}</h3>
+                    <p>${comment?.user.task}</p>
+                </div>
+            </div>
+            <p>
+                ${comment.description}
+            </p>
+            </div>
+        </div>
+        `)
+    });
+
+}
+///////////////////////// customer comments section end //////////////////////////
