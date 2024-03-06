@@ -187,5 +187,39 @@
             "blogImage": "../imgs/blogs/blog-4.jpg",
             "slug": ""
         }
+    ],
+    "partners": [
+        {
+            "id": 1,
+            "logo": "../imgs/index/partners/logo-1.png"
+        },
+        {
+            "id": 2,
+            "logo": "../imgs/index/partners/logo-2.png"
+        },
+        {
+            "id": 3,
+            "logo": "../imgs/index/partners/logo-3.png"
+        },
+        {
+            "id": 4,
+            "logo": "../imgs/index/partners/logo-4.png"
+        },
+        {
+            "id": 5,
+            "logo": "../imgs/index/partners/logo-5.png"
+        },
+        {
+            "id": 6,
+            "logo": "../imgs/index/partners/logo-6.png"
+        },
+        {
+            "id": 7,
+            "logo": "../imgs/index/partners/logo-7.png"
+        },
+        {
+            "id": 8,
+            "logo": "../imgs/index/partners/logo-8.png"
+        }
     ]
 }

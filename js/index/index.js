@@ -212,7 +212,7 @@ function renderBlogsToDom(blogsArray) {
                     </a>
                 </div>
                 <p>
-                    ${blog.description?.slice(0,40)} ...
+                    ${blog.description?.slice(0, 40)} ...
                 </p>
             </div>
         </div>
@@ -227,3 +227,42 @@ function renderBlogsToDom(blogsArray) {
 }
 
 //////////////////////// blogs section end /////////////////////////////////
+
+/////////////////////// partners section start ////////////////////////////
+let partnersSlide = new Swiper(".partners", {
+    loop: true,
+    slidesPerView: 4,
+    spaceBetween: 30,
+    autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+    },
+});
+(() => {
+    fetch('http://localhost:4000/partners')
+        .then(res => res.json())
+        .then(data => {
+            console.log('partners => ', data)
+            renderPartnersToDom(data)
+        }).catch(error => console.log(error.message));
+})();
+
+
+function renderPartnersToDom(partnersArray) {
+    // get partners wrapper element from DOM
+    const partnersWrapper = $.getElementById('partners-wrapper')
+    // console.log('partnersWrapper => ', partnersWrapper);
+    partnersArray.forEach(partner => {
+        partnersWrapper.insertAdjacentHTML('afterbegin', `
+        <div class="swiper-slide">
+            <div class="flex justify-center">
+                <img class="grayscale hover:grayscale-0 duration-300" src="${partner.logo}" >
+            </div>
+        </div>
+        `)
+    });
+}
+
+
+
+/////////////////////// partners section end /////////////////////////////
