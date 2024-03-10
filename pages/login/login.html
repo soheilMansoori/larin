@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <!-- link css file -->
+    <link rel="stylesheet" href="../../css/main.css">
+    <!-- Link tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com" defer></script>
+</head>
+
+<body class="font-YekanBakh-Regular text-sm bg-[#f5f1e4]" cz-shortcut-listen="true">
+
+    <div class="min-h-screen flex flex-col justify-center">
+        <div class="relative py-3 sm:max-w-sm sm:mx-auto">
+            <div class="absolute inset-0 bg-stone-900 transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
+            </div>
+            <div class="relative px-4 py-10 bg-gradient-to-t from-orange-100 to-[#f5f1e4] sm:rounded-3xl sm:p-14">
+
+                <div class="max-w-md mx-auto">
+                    <div>
+                        <h1 class="text-xl text-center font-YekanBakh-Bold">ورود</h1>
+                    </div>
+                    <div class="divide-y divide-gray-200">
+                        <form id="form"
+                            class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+                            <div id="server-error-message" class="text-red-500 font-bold text-center text-sm"></div>
+                            <div>
+                                <input id="username-input" type="text" placeholder="نام کاربری :"
+                                    class="input w-full rounded-full focus:outline-none placeholder:text-sm">
+                                <div id="username-input-error-message" class="text-red-500 font-bold p-2 text-sm"></div>
+                            </div>
+                            <div class="flex justify-end items-center relative">
+                                <input id="password-input" type="password" placeholder="رمز عبور :"
+                                    class="input w-full rounded-full focus:outline-none placeholder:text-sm">
+                                <img id="password-input-icon" class="absolute w-5 m-3 cursor-pointer"
+                                    src="https://img.icons8.com/?size=24&id=85130&format=png">
+                            </div>
+                            <div id="password-input-error-message" class="text-red-500 font-bold p-2 text-sm"></div>
+                            <button
+                                class="btn bg-stone-800 w-full hover:bg-stone-900 text-white rounded-full text-sm">ورود</button>
+                            <p class="mt-6 text-xs text-gray-600 text-center leading-8">
+                                اگر اکانت ندارید
+                                <a href="sign-up.html" class="border-b border-gray-500 border-dotted">
+                                    ثبت نام کنید
+                                </a>
+                            </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+    <script src="../../js/login/login.js"></script>
+</body>
+
+</html>

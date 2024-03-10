@@ -2,8 +2,7 @@
   "users": [
     {
       "id": "1",
-      "name": "soheil",
-      "family": "mansoori",
+      "username": "soheil",
       "password": "soheil1382",
       "phone": "09109336202",
       "task": "full stack web developer",
