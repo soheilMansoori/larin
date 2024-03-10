@@ -189,4 +189,13 @@ function closeErrorModal() {
 // event handlers
 closeErrorModalBtn.addEventListener('click', closeErrorModal);
 
+
+
+// close modals whit escape key
+window.addEventListener('keydown', (event) => {
+    if (event.key === "Escape") {
+        closeErrorModal()
+        closeSuccessModal()
+    }
+})
 ///////////////////////////// modals end ////////////////////////////// 
