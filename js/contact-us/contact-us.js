@@ -105,7 +105,6 @@ function isFormValid({ title, email, description }) {
 
 // end of validation and send the form to the server
 function sendFormToServer(form) {
-    event.preventDefault()
     let options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
     let today = new Date().toLocaleDateString('fa-IR', options);
     const contactForm = {
