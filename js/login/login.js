@@ -1,4 +1,3 @@
-console.log('hello world');
 const $ = document;
 // form
 const form = $.getElementById('form')
