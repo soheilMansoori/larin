@@ -112,7 +112,6 @@ function sendFormToServer(form) {
         ...form,
         date: today
     }
-    console.log('contactForm => ', contactForm);
     // send form
     fetch('http://localhost:4000/contacts', {
         method: 'POST',
@@ -122,7 +121,6 @@ function sendFormToServer(form) {
         body: JSON.stringify(contactForm)
     })
         .then(res => {
-            console.log("res =>", res);
             if (res.ok) {
                 clearAllInputsValues()
                 showSuccessModal()
@@ -130,8 +128,7 @@ function sendFormToServer(form) {
             } else {
                 showErrorModal()
             }
-        }).then(data => console.log("data =>", data))
-        .catch(error => console.log(error.message))
+        }).catch(error => console.log(error.message))
 };
 
 // submit the form to the server
@@ -144,7 +141,6 @@ form.addEventListener('submit', (event) => {
 
     event.preventDefault();
     if (isFormValid(formData)) {
-        console.log('submit');
         sendFormToServer(formData);
     }
 });
@@ -169,7 +165,7 @@ function closeSuccessModal() {
 };
 
 function redirectToHomePage() {
-    console.log('redirect user');
+    window.location.href = '/'; // redirect to home page
 };
 
 // event handlers
