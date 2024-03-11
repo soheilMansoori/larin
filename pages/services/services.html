@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog-Details</title>
-    <!-- css Link -->
+    <title>Services</title>
+    <!-- Link main CSS -->
     <link rel="stylesheet" href="../../css/main.css">
     <!-- Link tailwind CSS -->
     <script src="https://cdn.tailwindcss.com" defer></script>
-
 </head>
 
 <body id="body" class="font-YekanBakh-Regular text-sm bg-[#f5f1e4]">
@@ -162,8 +161,8 @@
     </nav>
     <!-- nav end -->
 
-    <!-- blog details start -->
-    <section class="px-4 mb-24">
+    <!-- services start -->
+    <section class="px-4 mb-24" id="services">
         <div class="container mx-auto max-w-screen-xl">
             <nav class="flex mb-5 border-y border-orange-200 py-3" aria-label="Breadcrumb">
                 <ol class="inline-flex items-center space-x-1 md:space-x-2">
@@ -179,61 +178,64 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5">
                                 </path>
                             </svg>
-                            <a href="#" class="mr-1 text-sm font-medium">جزئیات وبلاگ</a>
+
+                            <a href="#" class="mr-1 text-sm font-medium">خدمات</a>
                         </div>
                     </li>
                 </ol>
             </nav>
+            <div class="flex justify-center relative my-16">
+                <h2 class="font-YekanBakh-ExtraBlack text-3xl text-center">خــــــــدمــــــــات مــــــا</h2>
+                <div class="absolute -top-6">
+                    <span class="font-YekanBakh-ExtraBlack text-6xl text-opacity-10 text-stone-900">services</span>
 
-            <div class="flex flex-col items-center justify-center relative my-16">
-                <h2 class="font-YekanBakh-ExtraBlack text-3xl">جزئیات وبلاگ</h2>
-
+                </div>
                 <div class="bg-orange-200 w-20 h-1.5 rounded-full absolute top-10"></div>
-                <p class="mt-4" id="blog-title">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
-            </div>
 
-            <div class="max-w-4xl mx-auto">
-                <div>
-                    <img id="blog-image" class="rounded-3xl" src="">
-                </div>
-                <div id="blog-description" class="leading-8 mb-12">
-                    <!-- come from blog-details js -->
-                </div>
-                <div class="mb-12">
-                    <div class="flex items-center mb-6">
-                        <div class="mr-2">
-                            <span class="font-IRANSansWeb_Bold bg-orange-200 rounded-full px-4 py-1">مقالات مشابه</span>
-                        </div>
-                    </div>
-                    <div id="recommend-blogs-wrapper" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <!-- come from blog-details js -->
-                    </div>
-                </div>
-                <div>
-                    <div class="flex items-center mb-6">
-                        <div class="mr-2">
-                            <span class="font-IRANSansWeb_Bold bg-orange-200 rounded-full px-4 py-1">نظرات</span>
-                            <p class="mt-3" id="user-name">
-                                <!-- come from blog-details.js -->
-                            </p>
-                        </div>
-                    </div>
-                    <textarea id="comment-textarea" class="textarea textarea-bordered w-full h-36 rounded-3xl"
-                        placeholder="نظر خود را بنویسید..."></textarea>
-                    <button id="send-comment-btn"
-                        class="btn bg-stone-800 w-36 hover:bg-stone-900 text-white mt-4 rounded-full">ارسال
-                        پیام
-                    </button>
-                </div>
             </div>
-            <!-- comments container -->
-            <div class="max-w-4xl mx-auto my-5" id="comments-wrapper">
-                <!-- come from blog-details js -->
+            <!-- services-wrapper -->
+            <div id="services-wrapper" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-4">
+                <!-- come from services js -->
             </div>
-
         </div>
     </section>
-    <!-- blog details end -->
+    <!-- services end -->
+
+    <!-- pagination start -->
+    <div class="w-full my-10 flex items-center justify-center gap-3 container mx-auto">
+        <a href="#services" id="prev-page-btn"
+            class="inline-flex size-8 items-center justify-center rounded border border-gray-100 bg-white text-gray-900 rtl:rotate-180">
+            <span class="sr-only">Prev Page</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd"
+                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                    clip-rule="evenodd" />
+            </svg>
+        </a>
+
+        <p class="text-xs text-gray-900">
+            <span id="all-pages">
+                <!-- all page length come blogs js -->
+            </span>
+            <span class="mx-0.25">/</span>
+            <span id="current-page">
+                <!-- current page come from blogs js -->
+            </span>
+        </p>
+
+        <a href="#services" id="next-page-btn"
+            class="inline-flex size-8 items-center justify-center rounded border border-gray-100 bg-white text-gray-900 rtl:rotate-180">
+            <span class="sr-only">Next Page</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd"
+                    d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                    clip-rule="evenodd" />
+            </svg>
+        </a>
+    </div>
+    <!-- pagination end -->
+
+
 
     <!-- go to top button start -->
     <a href="#body" id="go-top-button"
@@ -300,96 +302,9 @@
     </footer>
     <!-- footer section end -->
 
-
-    <!-- modals start -->
-
-    <!-- success modal start -->
-    <div class="hidden min-w-screen h-screen animated fadeIn faster fixed left-0 top-0 justify-center items-center inset-0 z-50 outline-none focus:outline-none bg-no-repeat bg-center bg-cover"
-        id="success-modal">
-        <!-- black shadow -->
-        <div class="absolute bg-black opacity-80 inset-0 z-0"></div>
-        <div class="w-full max-w-lg p-5 relative mx-auto my-auto rounded-xl shadow-lg  bg-white ">
-            <!--content-->
-            <div class="">
-                <!--body-->
-                <div class="text-center p-5 flex-auto justify-center">
-                    <!-- icon -->
-                    <div class="flex justify-center py-5 w-full">
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100"
-                            viewBox="0 0 48 48">
-                            <path fill="#4caf50"
-                                d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path>
-                            <path fill="#ccff90"
-                                d="M34.602,14.602L21,28.199l-5.602-5.598l-2.797,2.797L21,33.801l16.398-16.402L34.602,14.602z">
-                            </path>
-                        </svg>
-                    </div>
-                    <!-- content -->
-                    <h2 class="text-xl font-bold py-4 ">کامنت شما با موفقعیت ثبت شد</h3>
-                        <p class="text-sm text-gray-500 px-8">
-                            کامنت شما ثبت شد پس از تایید قابل نمایش میشود
-                        </p>
-                </div>
-                <!--footer-->
-                <div class="p-3  mt-2 text-center space-x-4 md:block">
-                    <!-- close modal -->
-                    <button id="close-success-modal-btn"
-                        class="mb-2 md:mb-0 bg-orange-200 text-stoen-900 px-5 py-2 text-sm shadow-sm font-medium tracking-wider border rounded-full hover:shadow-lg hover:bg-stone-900 hover:text-white duration-300">
-                        اوک
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- success modal end-->
-
-    <!-- error modal start -->
-    <div class="hidden min-w-screen h-screen animated fadeIn faster fixed left-0 top-0 justify-center items-center inset-0 z-50 outline-none focus:outline-none bg-no-repeat bg-center bg-cover"
-        id="error-modal">
-        <!-- black shadow -->
-        <div class="absolute bg-black opacity-80 inset-0 z-0"></div>
-        <div class="w-full max-w-lg p-5 relative mx-auto my-auto rounded-xl shadow-lg  bg-white ">
-            <!--content-->
-            <div class="">
-                <!--body-->
-                <div class="text-center p-5 flex-auto justify-center">
-                    <!-- icon -->
-                    <div class="flex justify-center py-5 w-full">
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100"
-                            viewBox="0 0 48 48">
-                            <path fill="#f44336"
-                                d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path>
-                            <path fill="#fff" d="M29.656,15.516l2.828,2.828l-14.14,14.14l-2.828-2.828L29.656,15.516z">
-                            </path>
-                            <path fill="#fff" d="M32.484,29.656l-2.828,2.828l-14.14-14.14l2.828-2.828L32.484,29.656z">
-                            </path>
-                        </svg>
-                    </div>
-                    <!-- content -->
-                    <h2 class="text-xl font-bold py-4 ">مشکلی پیش امده</h3>
-                        <p class="text-sm text-gray-500 px-8">
-                            کامنت شما ثبت نشد مجددا تلاش کنید
-                        </p>
-                </div>
-                <!--footer-->
-                <div class="p-3  mt-2 text-center space-x-4 md:block">
-                    <!-- close modal -->
-                    <button id="close-error-modal-btn"
-                        class="mb-2 md:mb-0 duration-300 bg-red-500 border border-red-500 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-white hover:text-red-500">
-                        باشه
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- error modal end -->
-
-    <!-- modals end -->
-
-
     <!-- scripts -->
     <script src="../../js/app.js"></script>
-    <script src="../../js/blog-details/blog-details.js"></script>
+    <script src="../../js/services/services.js"></script>
 
 </body>
 

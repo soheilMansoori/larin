@@ -1,5 +1,5 @@
 const searchParams = new URLSearchParams(window.location.search);
-const page = searchParams.get('page') || "1"; // price_descending
+const page = searchParams.get('page') || "1";
 const pageSize = "4"
 
 const nextPageBtn = $.getElementById('next-page-btn');
