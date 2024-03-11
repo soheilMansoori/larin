@@ -11,7 +11,7 @@ let hasNextPage = false;
 let hasPrevPage = false;
 
 
-// get all services
+// get all services whit pagination
 (() => {
     fetch(`http://localhost:4000/services?_page=${page}&_per_page=${pageSize}`)
         .then(res => res.json())
