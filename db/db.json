@@ -38,7 +38,7 @@
       "family": "محمودی",
       "password": "navid",
       "phone": "09100000000",
-      "task": "معمار داخلی",
+      "task": "مهندس معماری",
       "profileImage": "../imgs/users/user-4.jpg",
       "token": "07b944da-41f5-431f-b552-60a02d6f849c",
       "role": "USER"
@@ -257,5 +257,23 @@
       "logo": "../imgs/index/partners/logo-8.png"
     }
   ],
-  "contacts": []
+  "contacts": [],
+  "managers": [
+    {
+      "id": "2",
+      "userId": "2"
+    },
+    {
+      "id": "3",
+      "userId": "3"
+    },
+    {
+      "id": "4",
+      "userId": "4"
+    },
+    {
+      "id": "5",
+      "userId": "5"
+    }
+  ]
 }
