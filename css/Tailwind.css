@@ -1437,7 +1437,7 @@ details.collapse summary::-webkit-details-marker {
 .collapse-plus:focus:not(.collapse-close)>.collapse-title:after,
 .collapse-plus:not(.collapse-close)>input[type="checkbox"]:checked~.collapse-title:after,
 .collapse-plus:not(.collapse-close)>input[type="radio"]:checked~.collapse-title:after {
-    content: "ā’";
+    content: "_";
 }
 
 .drawer-toggle:checked~.drawer-side>.drawer-overlay {
