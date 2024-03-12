@@ -86,7 +86,7 @@ function renderProjectsToDom(projectsArray) {
     // console.log('projectsWrapper => ', projectsWrapper);
     projectsArray.forEach((project) => {
         projectsWrapper.insertAdjacentHTML('afterbegin', `
-        <a  href="single-project.html"
+        <a  href="/pages/project-details/project-details.html?slug=${project.slug}"
             class="group my-3 md:my-0 relative flex justify-center h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg  md:h-72  col-span-1 md:col-span-2 ${project.id % 2 === 0 ? "lg:col-span-2" : "lg:col-span-1"}">   
             <img src="${project.img}" loading="lazy" alt="Photo by Martin Sanchez"
             class="absolute inset-0 h-full w-full object-cover object-center transition duration-300 group-hover:scale-110" />
@@ -207,7 +207,7 @@ function renderBlogsToDom(blogsArray) {
                             d="M13.98 5.31999L10.77 8.52999L8.79999 10.49C7.96999 11.32 7.96999 12.67 8.79999 13.5L13.98 18.68C14.66 19.36 15.82 18.87 15.82 17.92V12.31V6.07999C15.82 5.11999 14.66 4.63999 13.98 5.31999Z"
                             fill="#b9a158" />
                     </svg>
-                    <a href="single-page.html">
+                    <a href="/pages/blog-details/blog-details.html?slug=${blog.slug}">
                         <h2 class="font-YekanBakh-ExtraBold text-base mr-1">${blog.title}</h2>
                     </a>
                 </div>
@@ -217,7 +217,7 @@ function renderBlogsToDom(blogsArray) {
             </div>
         </div>
         <div>
-            <a href="single-page.html">
+            <a href="/pages/blog-details/blog-details.html?slug=${blog.slug}">
                 <img class="rounded-b-lg" src="${blog.blogImage}" alt="">
             </a>
         </div>
