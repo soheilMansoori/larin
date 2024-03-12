@@ -27,7 +27,7 @@ function renderProjectsToDom(projectsArray) {
     const projectsWrapper = $.getElementById('projects-wrapper');
     projectsArray.forEach(project => {
         projectsWrapper.insertAdjacentHTML('afterbegin', `
-        <a href="/pages/single-project/single-project.html?slug=${project.slug}"
+        <a href="/pages/project-details/project-details.html?slug=${project.slug}"
         class="group relative flex justify-center h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-72">
             <img src="../${project.img}" loading="lazy" alt="Photo by Minh Pham"
             class="absolute inset-0 h-full w-full object-cover object-center transition duration-300 group-hover:scale-110">
