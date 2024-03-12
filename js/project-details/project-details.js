@@ -37,7 +37,7 @@ const projectDetailsTabContent = $.getElementById("project-details");
                 return res.json()
             }
             else if (res.status === 404) {
-                window.location.href = 'pages/404/404.html';
+                window.location.href = '/pages/404/404.html';
             }
         }).then(project => {
             renderMainProjectToDom(project.title, project.oderImages, project.description, project.moreInfos);

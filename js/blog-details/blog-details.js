@@ -9,7 +9,7 @@ const slug = searchParams.get('slug');
                 return res.json()
             }
             else if (res.status === 404) {
-                window.location.href = 'pages/404/404.html';
+                window.location.href = '/pages/404/404.html';
             }
         }).then(data => {
             renderMainBlogToDom(data);
