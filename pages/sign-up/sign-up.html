@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign-Up</title>
+    <!-- pwa configs start -->
+    <link rel="manifest" href="../../pages/manifest.json">
+    <!-- pwa configs end -->
     <!-- css Link -->
     <link rel="stylesheet" href="../../css/main.css">
     <!-- Link tailwind CSS -->
@@ -35,7 +38,8 @@
                             <div>
                                 <input id="phone-number-input" type="text" placeholder="شماره تماس :"
                                     class="input w-full rounded-full focus:outline-none placeholder:text-sm">
-                                <div id="phone-number-input-error-message" class="text-red-500 font-bold p-2 text-sm"></div>
+                                <div id="phone-number-input-error-message" class="text-red-500 font-bold p-2 text-sm">
+                                </div>
                             </div>
                             <div class="flex justify-end items-center relative">
                                 <input id="password-input" type="password" placeholder="رمز عبور :"
@@ -45,7 +49,8 @@
                             </div>
                             <div id="password-input-error-message" class="text-red-500 font-bold p-2 text-sm"></div>
                             <button
-                                class="btn bg-stone-800 w-full hover:bg-stone-900 text-white rounded-full text-sm">ثبت نام</button>
+                                class="btn bg-stone-800 w-full hover:bg-stone-900 text-white rounded-full text-sm">ثبت
+                                نام</button>
                             <p class="mt-6 text-xs text-gray-600 text-center leading-8">
                                 قبلا حساب کاربری ساخته اید
                                 <a href="/pages/login/login.html" class="border-b border-gray-500 border-dotted">
