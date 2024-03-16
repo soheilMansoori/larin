@@ -20,3 +20,17 @@ if ("serviceWorker" in navigator) {
         .then(register => console.log('serviceWorker register successfully => ', register))
         .catch(error => console.log('not supported serviceWorker', error));
 }
+
+
+/////////////////// show user name in navbar ////////////////// 
+const localStorageData = JSON.parse(localStorage.getItem('user')) || {};
+const userNameButtons = $.querySelectorAll('.user-name-btn');
+
+userNameButtons.forEach(element => {
+    if (localStorageData.token) {
+        element.innerHTML = localStorageData.username;
+        element.href = '#'
+    } else {
+        element.innerHTML = 'ورود | ثبت نام';
+    }
+});
