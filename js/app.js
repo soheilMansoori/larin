@@ -13,3 +13,10 @@ window.addEventListener("scroll", () => {
 
 }, false);
 ///////////////////// got to top btn  end ///////////////////////////
+
+// check the is user browser supports service worker
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register('../../serviceWorker.js')
+        .then(register => console.log('serviceWorker register successfully => ', register))
+        .catch(error => console.log('not supported serviceWorker', error));
+}
