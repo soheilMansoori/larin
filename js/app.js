@@ -23,12 +23,12 @@ if ("serviceWorker" in navigator) {
 
 
 /////////////////// show user name in navbar ////////////////// 
-const localStorageData = JSON.parse(localStorage.getItem('user')) || {};
+const { username , token } = JSON.parse(localStorage.getItem('user')) || {};
 const userNameButtons = $.querySelectorAll('.user-name-btn');
 
 userNameButtons.forEach(element => {
-    if (localStorageData.token) {
-        element.innerHTML = localStorageData.username;
+    if (token) {
+        element.innerHTML = username;
         element.href = '#'
     } else {
         element.innerHTML = 'ورود | ثبت نام';
