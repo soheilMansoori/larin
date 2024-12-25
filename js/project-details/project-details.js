@@ -31,7 +31,7 @@ const projectDetailsTabContent = $.getElementById("project-details");
 
 // get main project
 (() => {
-    fetch(`http://localhost:4000/projects/${slug}`)
+    fetch(`/api/projects/${slug}`)
         .then(res => {
             if (res.ok) {
                 return res.json()
@@ -61,6 +61,7 @@ function renderMainProjectToDom(projectTitle, projectImagesArray, projectDescrip
         </div>
         `);
     });
+
     // order images
     projectImagesArray.forEach(image => {
         oderImagesWrapper.insertAdjacentHTML("beforeend", `
@@ -73,6 +74,7 @@ function renderMainProjectToDom(projectTitle, projectImagesArray, projectDescrip
 
 
     projectDescriptionTabContent.insertAdjacentHTML("beforeend", `<p>${projectDescription}</p>`);
+
     const projectDetailsWrapper = $.getElementById("project-details-wrapper");
     projectDetailsWrapper.insertAdjacentHTML("beforeend", `
     <div class="bg-orange-200 col-span-1 rounded-lg flex items-center">
@@ -161,17 +163,22 @@ function showMainTab(event) {
     const mainTab = event.target.dataset.tab
     if (mainTab === "description") {
         projectDescriptionTabContent.classList.remove("hidden");
+        projectDescriptionTabContent.style.display = "block";
         showDescriptionTabBtn.classList.add("active");
 
         // 
         projectDetailsTabContent.classList.add("hidden");
+        projectDetailsTabContent.style.display = "none";
         showDetailsTabBtn.classList.remove("active");
 
     } else {
         projectDetailsTabContent.classList.remove("hidden");
+        projectDetailsTabContent.style.display = "block";
         showDetailsTabBtn.classList.add("active");
+
         // 
         projectDescriptionTabContent.classList.add("hidden");
+        projectDescriptionTabContent.style.display = "none";
         showDescriptionTabBtn.classList.remove("active");
     }
 }
@@ -181,7 +188,7 @@ showDetailsTabBtn.addEventListener('click', showMainTab);
 
 // get recommend projects
 (() => {
-    fetch('http://localhost:4000/projects')
+    fetch('/api/projects')
         .then(res => res.json())
         .then(projects => {
             const recommendProjects = projects.filter(project => project.id !== slug).sort(() => Math.random() - 0.5).slice(0, 3)
@@ -218,13 +225,21 @@ function renderRecommendProjectsToDom(projectsArray) {
 
 // get all main project comments
 function getAllMainComments() {
-    fetch(`http://localhost:4000/comments?projectId=${slug}&_embed=user`)
+    fetch(`/api/comments?projectId=${slug}`)
         .then(res => res.json())
-        .then(comments => {
-            comments.length && renderCommentsToDom(comments)
+        .then(async (comments) => {
+            const res = await fetch("/api/users");
+            const users = await res.json();
+            const embedComments = comments.reverse().map(comment => {
+                const user = users.find(user => user.id == comment.userId);
+                return { ...comment, user }
+            });
+
+            embedComments.length && renderCommentsToDom(embedComments)
         }).catch(error => console.log(error.message));
 
-}; getAllMainComments()
+}; getAllMainComments();
+
 
 // render comments to DOM
 function renderCommentsToDom(commentsArray) {
@@ -283,7 +298,7 @@ sendCommentBtn.addEventListener('click', () => {
                 role: localStorageData.role,
                 isShow: true,
             }
-            fetch('http://localhost:4000/comments/', {
+            fetch('/api/comments/', {
                 method: 'POST',
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8'

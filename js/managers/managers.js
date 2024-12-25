@@ -12,7 +12,7 @@ let hasPrevPage = false;
 
 // get all managers whit pagination
 (() => {
-    fetch(`http://localhost:4000/managers?_embed=user&_page=${page}&_per_page=${pageSize}`)
+    fetch(`/api/managers?_embed=user&_page=${page}&_per_page=${pageSize}`)
         .then(res => res.json())
         .then(managers => {
             renderManagersToDom(managers.data)

@@ -112,7 +112,7 @@ function sendFormToServer(form) {
         date: today
     }
     // send form
-    fetch('http://localhost:4000/contacts', {
+    fetch('/api/contacts', {
         method: 'POST',
         headers: {
             'Content-type': 'application/json; charset=UTF-8',

@@ -11,13 +11,23 @@ let hasPrevPage = false;
 
 // get all blogs whit pagination
 (() => {
-    fetch(`http://localhost:4000/blogs?_embed=user&_page=${page}&_per_page=${pageSize}`)
+    fetch(`/api/blogs`)
         .then(res => res.json())
-        .then(data => {
-            renderBlogsToDom(data.data);
-            pagination(data.pages)
-            hasNextPage = data.next
-            hasPrevPage = data.prev
+        .then(async (blogs) => {
+            const res = await fetch("/api/users");
+            const users = await res.json();
+            const pages = Math.ceil(blogs.length / pageSize);
+            const paginationBlogs = blogs.slice(((page * pageSize) - pageSize), (pageSize * page)).reverse().map(blog => {
+                const user = users.find(user => user.id == blog.userId);
+                return { ...blog, user }
+            });
+
+            // fix next and prev page 
+            hasNextPage = pages > page
+            hasPrevPage = page > pages
+
+            renderBlogsToDom(paginationBlogs);
+            pagination(pages);
         }).catch(error => console.log(error.message));
 })();
 

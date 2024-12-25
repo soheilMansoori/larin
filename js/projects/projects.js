@@ -12,13 +12,19 @@ let hasPrevPage = false;
 
 // get all projects whit pagination
 (() => {
-    fetch(`http://localhost:4000/projects?_embed=user&_page=${page}&_per_page=${pageSize}`)
+    fetch(`/api/projects`)
         .then(res => res.json())
         .then(projects => {
-            renderProjectsToDom(projects.data.reverse())
-            pagination(projects.pages)
-            hasNextPage = projects.next
-            hasPrevPage = projects.prev
+            const pages = Math.ceil(projects.length / pageSize);
+            const paginationProjects = projects.slice(((page * pageSize) - pageSize), (pageSize * page)).reverse();
+
+            // fix next and prev page 
+            hasNextPage = pages > page
+            hasPrevPage = page > pages
+
+            // render project to dom
+            renderProjectsToDom(paginationProjects)
+            pagination(pages);
         }).catch(error => console.log(error.message));
 })();
 

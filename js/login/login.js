@@ -84,7 +84,7 @@ function isFormValid({ username, password }) {
 // end of validation and send the form to the server
 function sendFormToServer(form) {
     // get all users from the server
-    fetch(`http://localhost:4000/users?username=${form.username}&password=${form.password}`)
+    fetch(`/api/users?username=${form.username}&password=${form.password}`)
         .then(res => res.json())
         .then(user => {
             if (user.length) {

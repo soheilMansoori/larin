@@ -13,14 +13,19 @@ let hasPrevPage = false;
 
 // get all services whit pagination
 (() => {
-    fetch(`http://localhost:4000/services?_page=${page}&_per_page=${pageSize}`)
+    fetch(`/api/services`)
         .then(res => res.json())
         .then(services => {
-            renderServicesToDom(services.data)
-            pagination(services.pages)
-            hasNextPage = services.next
-            hasPrevPage = services.prev
+            const pages = Math.ceil(services.length / pageSize);
+            const paginationServices = services.slice(((page * pageSize) - pageSize), (pageSize * page)).reverse();
 
+            // fix next and prev page 
+            hasNextPage = pages > page
+            hasPrevPage = page > pages
+
+            // render services to dom
+            renderServicesToDom(paginationServices);
+            pagination(pages);
         })
         .catch(error => console.log(error.message));
 })();

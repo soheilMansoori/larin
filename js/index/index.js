@@ -22,12 +22,9 @@ let headerSlider = new Swiper(".mySwiper", {
 
 // get all services from server
 (() => {
-    fetch('http://localhost:4000/services?_limit=4')
+    fetch('/api/services?_limit=4')
         .then(res => res.json())
-        .then(data => {
-            // console.log('services => ', data)
-            renderServicesToDom(data.reverse())
-        })
+        .then(data => renderServicesToDom(data.reverse()))
         .catch(error => console.log(error.message))
 })();
 
@@ -72,12 +69,10 @@ function renderServicesToDom(servicesArray) {
 
 // get all projects form server
 (() => {
-    fetch('http://localhost:4000/projects?_limit=4')
+    fetch('/api/projects?_limit=4')
         .then(res => res.json())
-        .then(data => {
-            // console.log('projects => ', data);
-            renderProjectsToDom(data.slice(0, 4).reverse())
-        }).catch(error => console.log(error.message));
+        .then(data => renderProjectsToDom(data.slice(0, 4).reverse()))
+        .catch(error => console.log(error.message));
 })();
 
 function renderProjectsToDom(projectsArray) {
@@ -126,13 +121,22 @@ let customerCommentsSlider = new Swiper(".customer", {
         clickable: true,
     },
 });
+
 // get all comments from server
 (() => {
-    fetch('http://localhost:4000/comments?_limit=4&_embed=user')
+    fetch('/api/comments?_limit=4&_embed=user')
         .then(res => res.json())
-        .then(data => {
-            // console.log('comments => ', data);
-            renderCommentsToDom(data);
+        .then(async (comments) => {
+            // get all users
+            const res = await fetch("/api/users");
+            const users = await res.json();
+
+            // embed comments creators
+            const embedComments = comments.map(comment => {
+                const user = users.find(user => user.id == comment.userId);
+                return { ...comment, user }
+            })
+            renderCommentsToDom(embedComments);
         }).catch(error => console.log(error.message));
 })();
 
@@ -170,11 +174,20 @@ function renderCommentsToDom(commentsArray) {
 
 // get all blogs from the server
 (() => {
-    fetch('http://localhost:4000/blogs?_limit=4&_embed=user')
+    fetch('/api/blogs?_limit=4')
         .then(res => res.json())
-        .then(data => {
+        .then(async (blogs) => {
             // console.log('blogs => ', data);
-            renderBlogsToDom(data)
+            // get all users
+            const res = await fetch("/api/users");
+            const users = await res.json();
+
+            // embed blogs creators
+            const embedBlogs = blogs.map(blog => {
+                const user = users.find(user => user.id == blog.userId);
+                return { ...blog, user }
+            });
+            renderBlogsToDom(embedBlogs);
         }).catch(error => console.log(error.message));
 })();
 
@@ -239,7 +252,7 @@ let partnersSlide = new Swiper(".partners", {
     },
 });
 (() => {
-    fetch('http://localhost:4000/partners')
+    fetch('/api/partners')
         .then(res => res.json())
         .then(data => {
             // console.log('partners => ', data)

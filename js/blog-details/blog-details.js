@@ -3,7 +3,7 @@ const slug = searchParams.get('slug');
 
 // get main blog
 (() => {
-    fetch(`http://localhost:4000/blogs/${slug}`)
+    fetch(`/api/blogs/${slug}`)
         .then(res => {
             if (res.ok) {
                 return res.json()
@@ -29,7 +29,7 @@ function renderMainBlogToDom(mainBlog) {
 
 // get recommend blogs
 (() => {
-    fetch('http://localhost:4000/blogs')
+    fetch('/api/blogs')
         .then(res => res.json())
         .then(blogs => {
             const recommendBlogs = blogs.filter(blog => blog.id !== slug).sort(() => Math.random() - 0.5).slice(0, 2)
@@ -63,7 +63,7 @@ function renderRecommendBlogToDom(blogsArray) {
 
 // get all main blog comments
 function getAllMainComments() {
-    fetch(`http://localhost:4000/comments?blogId=${slug}&_embed=user`)
+    fetch(`/api/comments?blogId=${slug}&_embed=user`)
         .then(res => res.json())
         .then(comments => {
             comments.length && renderCommentsToDom(comments)
@@ -126,7 +126,7 @@ sendCommentBtn.addEventListener('click', () => {
                 role: localStorageData.role,
                 isShow: true,
             }
-            fetch('http://localhost:4000/comments/', {
+            fetch('/api/comments/', {
                 method: 'POST',
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8'

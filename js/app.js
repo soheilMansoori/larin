@@ -17,13 +17,15 @@ window.addEventListener("scroll", () => {
 // check the is user browser supports service worker
 if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register('../../serviceWorker.js')
-        .then(register => console.log('serviceWorker register successfully => ', register))
+        .then(register => {
+            // console.log('serviceWorker register successfully => ', register)
+        })
         .catch(error => console.log('not supported serviceWorker', error));
 }
 
 
 /////////////////// show user name in navbar ////////////////// 
-const { username , token } = JSON.parse(localStorage.getItem('user')) || {};
+const { username, token } = JSON.parse(localStorage.getItem('user')) || {};
 const userNameButtons = $.querySelectorAll('.user-name-btn');
 
 userNameButtons.forEach(element => {

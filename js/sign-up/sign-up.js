@@ -125,7 +125,7 @@ function sendFormToServer({ username, password, phone }) {
 
     }
     // get all users from the server
-    fetch("http://localhost:4000/users", {
+    fetch("/api/users", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
